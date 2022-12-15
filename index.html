@@ -1,0 +1,149 @@
+<html>
+<head>
+   <title>JS - Conditional Project</title>
+
+   <style>
+      *{
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      h2 
+      {
+        font-size: 28px;
+        font-weight: 600;
+        margin-top: 70px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+      h3 
+      {
+        font-size: 28px;
+        font-weight: 600;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .resultBox
+      {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .resultBox table tr th,.resultBox table tr td
+      {
+        padding: 10px;
+      }
+      .resultBox table tr td input
+      {
+        height: 40px;
+        padding: 5px;
+        width: 80px;
+        outline: none;
+        box-shadow: none;
+      }
+   </style>
+</head>
+<body>
+   
+  <h2>Get Your Result Percentage Easily</h2>
+
+    <form class="resultBox">
+     
+      <table border="1" width="60%">
+
+         <tr>
+          <th style="text-align: left;">Subject</th>
+          <th style="text-align: left;">Marks</th>
+         </tr>
+
+         <tr>
+          <td>Bangla (Out of 100)</td>
+          <td>
+            <input type="number" required  name="" id="bangla">
+          </td>
+         </tr>
+
+         <tr>
+          <td>English (Out of 100)</td>
+          <td>
+            <input type="number" required name="" id="english">
+          </td>
+         </tr>
+
+         <tr>
+          <td>Math (Out of 100)</td>
+          <td>
+            <input type="number" required name="" id="math">
+          </td>
+         </tr>
+
+         <tr>
+          <td>Science (Out of 100)</td>
+          <td>
+            <input type="number" required name="" id="science">
+          </td>
+         </tr>
+
+         <tr>
+          <td>Sports (Out of 100)</td>
+          <td>
+            <input type="number" required name="" id="sports">
+          </td>
+         </tr>
+
+         <tr>
+          <td>Religion (Out of 100)</td>
+          <td>
+            <input type="number" required name="" id="religion">
+          </td>
+         </tr>
+
+         <tr>
+          <td><input type="reset" style="background-color: red; color: white; border: none; cursor: pointer;" name="" id=""></td>
+          <td>
+            <input type="button" style="background-color: green; color: white; border: none; cursor: pointer;" value="Submit" onclick="submitForm()">
+          </td>
+         </tr>
+      </table>
+
+    </form>
+
+    <h3 id="totalNum"></h3>
+    <h3 id="percentageNum"></h3>
+
+
+    <script>
+      function submitForm()
+      {
+         var religion = document.getElementById("religion").valueAsNumber;
+         var sports  = document.getElementById("sports").valueAsNumber;
+         var science  = document.getElementById("science").valueAsNumber;
+         var math  = document.getElementById("math").valueAsNumber;
+         var english  = document.getElementById("english").valueAsNumber;
+         var bangla   = document.getElementById("bangla").valueAsNumber;
+         
+         //condition for validate
+
+         if(religion!="" && sports!="" && science!="" && math!="" && english!="" && bangla!="")
+         {
+           var totalMarks = religion+sports+science+math+english+bangla;
+           var percentage = (totalMarks/600)*100;
+
+           document.getElementById("totalNum").innerHTML = "You Obtain = "+totalMarks+"Marks out of 600";
+
+           document.getElementById("percentageNum").innerHTML = "Your Result Percentage = "+percentage+"%";
+          
+         }
+         else 
+         {
+           alert('Need to fill marks box');
+         }
+      }
+    </script>
+ 
+
+</body>
+</html>
